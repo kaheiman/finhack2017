@@ -592,6 +592,7 @@
                                         <state key="normal" backgroundImage="back button"/>
                                         <connections>
                                             <action selector="dismiss_Control:" destination="sPD-RT-Jfg" eventType="touchUpInside" id="zv4-NQ-LYd"/>
+                                            <segue destination="aia-ld-Ees" kind="showDetail" id="giJ-zs-837"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -676,6 +677,7 @@
         <image name="tiffany" width="319" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="giJ-zs-837"/>
         <segue reference="EZn-Oj-CR7"/>
     </inferredMetricsTieBreakers>
 </document>

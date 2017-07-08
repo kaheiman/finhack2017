@@ -16,16 +16,16 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var mapView: MKMapView?
     @IBAction func dismiss_Control(_ sender: Any) {
         print("pop controller1")
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
     }
 
     var imageArray = [Any]()
 
     var imageArray0 = [UIImage(named: "Group 73"), UIImage(named: "Group 72"), UIImage(named: "Group 65"), UIImage(named: "Group 88"), UIImage(named: "Group 63")]
 
-    var imageArray1 = [UIImage(named: "Group 63"), UIImage(named: "Group 67"), UIImage(named: "Group 66"), UIImage(named: "Group 89"), UIImage(named: "Group 99")]
+    var imageArray1 = [UIImage(named: "Group 63"), UIImage(named: "Group 67"), UIImage(named: "Group 66"), UIImage(named: "Group 69"), UIImage(named: "Group 99")]
 
-    var path1 = false
+    var path1 = true
 
     let locationManager = CLLocationManager()
     
@@ -175,6 +175,7 @@ extension Map2ViewController: MKMapViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
 
+        print(indexPath.row)
         cell.image.image = imageArray[indexPath.row] as! UIImage
 
         return cell
