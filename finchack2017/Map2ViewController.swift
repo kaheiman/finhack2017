@@ -10,9 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class Map2ViewController: UIViewController {
+class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+
+{
     @IBOutlet var mapView: MKMapView?
-    
+
+    var imageArray = [UIImage(named: "bar_item2"), UIImage(named: "bar_item1"), UIImage(named: "hang_sang_pin")]
+
     let locationManager = CLLocationManager()
     
     let places = Place.getPlaces()
@@ -129,6 +133,28 @@ extension Map2ViewController: MKMapViewDelegate {
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        return
+//    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageArray.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+
+        cell.image.image = imageArray[indexPath.row]
+
+        return cell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailController"{
+            //let controller = segue.destination as! pageViewController
+            //controller.meal = self.meals[(menuCell.indexPathForSelectedRow?.row)!]
+        }
     }
 }
 

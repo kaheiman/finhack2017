@@ -93,6 +93,10 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 
             if metadataObj.stringValue != nil {
                 msgLabel.text = metadataObj.stringValue
+
+                print("scann success")
+
+                DatabaseManager.sharedInstance().inviteIndividual(rid: DatabaseManager.uid , uid: metadataObj.stringValue)
             }
         }
     }
