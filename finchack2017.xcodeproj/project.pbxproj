@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C26BFCD1F10996600E582FA /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C26BFCC1F10996600E582FA /* GoogleService-Info (1).plist */; };
 		2C62ABE51F10917F00E7F49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62ABE41F10917F00E7F49A /* AppDelegate.swift */; };
 		2C62ABE71F10917F00E7F49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62ABE61F10917F00E7F49A /* ViewController.swift */; };
 		2C62ABEA1F10917F00E7F49A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ABE81F10917F00E7F49A /* Main.storyboard */; };
@@ -25,13 +24,13 @@
 		2C62AC0B1F10940900E7F49A /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62ABFF1F10940900E7F49A /* QRScannerController.swift */; };
 		2C62AC0C1F10940900E7F49A /* RoudButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62AC001F10940900E7F49A /* RoudButton.swift */; };
 		2C62AC0D1F10940900E7F49A /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62AC011F10940900E7F49A /* testViewController.swift */; };
+		2CF0807F1F10A1C400B7EF67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */; };
 		4D3AE9CF2D6B88A681C47E81 /* Pods_finchack2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5DB8057E859BBE7AD206FA /* Pods_finchack2017.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0008815F04C54086EA0CD592 /* Pods-finchack2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finchack2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-finchack2017/Pods-finchack2017.release.xcconfig"; sourceTree = "<group>"; };
 		0A5DB8057E859BBE7AD206FA /* Pods_finchack2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_finchack2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C26BFCC1F10996600E582FA /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		2C62ABE11F10917F00E7F49A /* finchack2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finchack2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C62ABE41F10917F00E7F49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C62ABE61F10917F00E7F49A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		2C62ABFF1F10940900E7F49A /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		2C62AC001F10940900E7F49A /* RoudButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoudButton.swift; sourceTree = "<group>"; };
 		2C62AC011F10940900E7F49A /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B0DA9613F58B2845BD01B590 /* Pods-finchack2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finchack2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-finchack2017/Pods-finchack2017.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 		2C62ABE31F10917F00E7F49A /* finchack2017 */ = {
 			isa = PBXGroup;
 			children = (
-				2C26BFCC1F10996600E582FA /* GoogleService-Info (1).plist */,
+				2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */,
 				2C62ABF61F10940900E7F49A /* GradientView.swift */,
 				2C62ABF71F10940900E7F49A /* Map2ViewController.swift */,
 				2C62ABF81F10940900E7F49A /* MapCollectionViewCell.swift */,
@@ -191,11 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C62ABEF1F10917F00E7F49A /* LaunchScreen.storyboard in Resources */,
-				2C26BFCD1F10996600E582FA /* GoogleService-Info (1).plist in Resources */,
 				2C62ABEC1F10917F00E7F49A /* Assets.xcassets in Resources */,
 				2C62AC081F10940900E7F49A /* Places.plist in Resources */,
 				2C62AC091F10940900E7F49A /* pro.plist in Resources */,
 				2C62ABEA1F10917F00E7F49A /* Main.storyboard in Resources */,
+				2CF0807F1F10A1C400B7EF67 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
