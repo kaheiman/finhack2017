@@ -15,7 +15,9 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
 {
     @IBOutlet var mapView: MKMapView?
 
-    var imageArray = [UIImage(named: "Group 73"), UIImage(named: "Group 72"), UIImage(named: "Group 65"), UIImage(named: "Group 88"), UIImage(named: "Group 63")]
+    var imageArray = [Any]()
+
+    var imageArray0 = [UIImage(named: "Group 73"), UIImage(named: "Group 72"), UIImage(named: "Group 65"), UIImage(named: "Group 88"), UIImage(named: "Group 63")]
 
     var imageArray1 = [UIImage(named: "Group 63"), UIImage(named: "Group 67"), UIImage(named: "Group 66"), UIImage(named: "Group 89"), UIImage(named: "Group 99")]
 
@@ -31,23 +33,33 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //requestLocationAccess()
 
         (places_single , places_multi) = Place.getPlaces()
-        if path1{
+        if !path1{
             places = places_multi
+            imageArray = imageArray1
             print("path1 detected")
         } else{
             places = places_single
+            imageArray = imageArray0
             print("path0 detected")
         }
 
         //Show the map
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            //locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-            
-        }
+//        if CLLocationManager.locationServicesEnabled(){
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//            locationManager.requestWhenInUseAuthorization()
+//            //locationManager.requestAlwaysAuthorization()
+//            //locationManager.startUpdatingLocation()
+//            
+//        }
+
+        let lat = (path1 ? 22.2832221:22.2807481)
+        let lng = (path1 ? 114.181369:114.181085)
+        let span = MKCoordinateSpanMake(0.014, 0.014)
+        let coordinates = CLLocationCoordinate2DMake(lat, lng)
+        let region = MKCoordinateRegion(center: coordinates, span: span)
+        self.mapView?.setRegion(region, animated: true)
+
         addAnnotations()
         addPolyline()
         //addPolygon()
@@ -159,7 +171,7 @@ extension Map2ViewController: MKMapViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
 
-        cell.image.image = imageArray[indexPath.row]
+        cell.image.image = imageArray[indexPath.row] as! UIImage
 
         return cell
     }

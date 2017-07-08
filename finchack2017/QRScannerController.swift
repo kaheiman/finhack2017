@@ -141,6 +141,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "scanVerify"{
+            print("gg can verify")
             let controller = segue.destination as! Map2ViewController
             controller.path1 = true
         }

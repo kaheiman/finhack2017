@@ -19,12 +19,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBAction func showbutton(_ sender: Any) {
         //Defining destination
-        let latitude:CLLocationDegrees = 22.261556
-        let longitude:CLLocationDegrees = 114.129134
+        let latitude:CLLocationDegrees = 22.2832221
+        let longitude:CLLocationDegrees = 114.181369
         
         let regionDistance:CLLocationDistance = 1000;
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let coordinates2 = CLLocationCoordinate2DMake(22.2620876, 114.1290134)
+        let coordinates2 = CLLocationCoordinate2DMake(22.2832221, 114.181369)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
         
         let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]

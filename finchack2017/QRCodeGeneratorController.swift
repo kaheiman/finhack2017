@@ -17,6 +17,7 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
     var databaseURL: String = "https://finhack2017.firebaseio.com/"
     var qrcodeImage: CIImage!
     var effect:UIVisualEffect!
+    var rid: String?
 
 //    @IBOutlet weak var textField: UITextField!
 //    @IBOutlet weak var btnAction: UIButton!
@@ -26,6 +27,7 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
     @IBAction func popUpAccept(_ sender: Any) {
 
+        DatabaseManager.sharedInstance().acceptInvitation(rid: rid!, uid: DatabaseManager.uid)
         print("popupaccept button on")
         //self.performSegue(withIdentifier: "secondRoute", sender: self)
     }
@@ -83,8 +85,9 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
     }
 
-    private func oninvite(rid: String){
+    private func oninvite(srid: String){
         print("invited..........")
+        rid = srid
         animateIn()
     }
 
