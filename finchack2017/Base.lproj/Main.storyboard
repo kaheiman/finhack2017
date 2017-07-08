@@ -147,7 +147,7 @@
                                         <rect key="frame" x="0.0" y="51" width="375" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title_hang_sang" translatesAutoresizingMaskIntoConstraints="NO" id="xgh-v7-ba7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Welcome to MindMap." translatesAutoresizingMaskIntoConstraints="NO" id="xgh-v7-ba7">
                                         <rect key="frame" x="33" y="244" width="250" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -160,7 +160,7 @@
                                         <rect key="frame" x="52" y="540" width="130" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hang_sang_rule" translatesAutoresizingMaskIntoConstraints="NO" id="8md-33-wPK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="By singing up-1" translatesAutoresizingMaskIntoConstraints="NO" id="8md-33-wPK">
                                         <rect key="frame" x="46.5" y="593" width="281" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -238,16 +238,92 @@
                                     </imageView>
                                 </subviews>
                             </view>
+                            <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-Wj-SW4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="yry-hz-s4J">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="backgroundColor" red="0.20632245893664811" green="0.2058293135003362" blue="0.20913461538461542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imgQRCode" destination="qaL-4J-n6p" id="570-o2-gPq"/>
+                        <outlet property="popUpView" destination="e3p-wq-Vvk" id="uGJ-eu-QGx"/>
+                        <outlet property="visualEffect" destination="WVl-Wj-SW4" id="oUq-nh-PRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a11-Vp-Nka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="e3p-wq-Vvk" userLabel="popup_view">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eol-Ve-l5n">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group 64" translatesAutoresizingMaskIntoConstraints="NO" id="0Lk-Kq-RyZ">
+                                    <rect key="frame" x="10" y="17.5" width="280" height="74"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="finhack_map" translatesAutoresizingMaskIntoConstraints="NO" id="T9X-R6-URL">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ca-9G-96u" customClass="RoudButton" customModule="finchack2017" customModuleProvider="target">
+                                    <rect key="frame" x="182.5" y="101" width="87.5" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="Decline">
+                                        <color key="titleColor" red="0.46300274130000002" green="0.77807557579999997" blue="0.74245601890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.46300274130000002" green="0.77807557579999997" blue="0.74245601890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBI-jc-Isb" customClass="RoudButton" customModule="finchack2017" customModuleProvider="target">
+                                    <rect key="frame" x="32.5" y="101" width="87.5" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="Accept">
+                                        <color key="titleColor" red="0.46300274133682251" green="0.77807557582855225" blue="0.74245601892471313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.46300274133682251" green="0.77807557582855225" blue="0.74245601892471313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="popUpAccept:" destination="blR-mt-bqq" eventType="touchUpInside" id="aom-QY-6pz"/>
+                                        <segue destination="sPD-RT-Jfg" kind="show" identifier="secondRoute" id="EZn-Oj-CR7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="137" y="2001"/>
+            <point key="canvasLocation" x="169" y="2405"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="IGT-c8-B6p">
@@ -342,11 +418,12 @@
                     </view>
                     <connections>
                         <outlet property="msgLabel" destination="hw7-1W-Z6O" id="iEL-jP-gsT"/>
+                        <segue destination="sPD-RT-Jfg" kind="show" identifier="scanVerify" id="3lj-8w-5aM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHW-Mt-1BT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-889" y="2049"/>
+            <point key="canvasLocation" x="-1433" y="2277"/>
         </scene>
         <!--test-->
         <scene sceneID="GYX-Lu-htf">
@@ -455,24 +532,24 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="05x-dS-WtO">
                                         <rect key="frame" x="0.0" y="423" width="375" height="244"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.77297619213048097" green="1" blue="0.95790733886393875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96632375396594061" green="0.96280378608502337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6SI-Ve-SJZ">
-                                            <size key="itemSize" width="263" height="150"/>
+                                            <size key="itemSize" width="196" height="182"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="VH2-cA-eBy" customClass="ImageCollectionViewCell" customModule="finchack2017" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="47" width="263" height="150"/>
+                                                <rect key="frame" x="0.0" y="31" width="196" height="182"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="263" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="196" height="182"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esi-vE-OUy">
-                                                            <rect key="frame" x="11" y="11" width="240" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esi-vE-OUy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="196" height="182"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -488,7 +565,7 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.97079877418414551" blue="0.61403625616549884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,12 +613,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="By singing up-1" width="290" height="26"/>
         <image name="Ellipse 58" width="183" height="183"/>
         <image name="Group 46" width="309" height="68"/>
         <image name="Group 58" width="74" height="74"/>
         <image name="Group 59" width="74" height="74"/>
         <image name="Group 61" width="115" height="119"/>
         <image name="Group 62" width="392" height="276"/>
+        <image name="Group 64" width="324" height="76"/>
+        <image name="Welcome to MindMap." width="222" height="88"/>
         <image name="bar_item1" width="30" height="30"/>
         <image name="bar_item2" width="31" height="31"/>
         <image name="create_account" width="286" height="41"/>
@@ -550,12 +630,13 @@
         <image name="finhack_map" width="1188" height="678"/>
         <image name="hang sang page1" width="375" height="105"/>
         <image name="hang_sang_icon" width="456" height="471"/>
-        <image name="hang_sang_rule" width="281" height="26"/>
         <image name="hang_sang_rule2" width="117" height="20"/>
         <image name="hang_sang_shop" width="375" height="772"/>
         <image name="hang_sang_showmebutton" width="309" height="68"/>
         <image name="line" width="375" height="2"/>
         <image name="searching_bar" width="366" height="62"/>
-        <image name="title_hang_sang" width="222" height="88"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3lj-8w-5aM"/>
+    </inferredMetricsTieBreakers>
 </document>

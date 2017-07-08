@@ -14,6 +14,8 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
+    var scanned = false
+
 
     @IBOutlet weak var msgLabel: UILabel!
 
@@ -74,30 +76,73 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         // Dispose of any resources that can be recreated.
     }
 
+//    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+//
+//        // Check if the metadataObjects array is not nil and it contains at least one object.
+//        if metadataObjects == nil || metadataObjects.count == 0 {
+//            qrCodeFrameView?.frame = CGRect.zero
+//            msgLabel.text = "No QR code is detected"
+//            return
+//        }
+//
+//        // Get the metadata object.
+//        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+//
+//        if metadataObj.type == AVMetadataObjectTypeQRCode {
+//            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+//            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+//            qrCodeFrameView?.frame = barCodeObject!.bounds
+//
+//            if metadataObj.stringValue != nil {
+//                msgLabel.text = metadataObj.stringValue
+//
+//                print("scann success")
+//
+//                DatabaseManager.sharedInstance().inviteIndividual(rid: DatabaseManager.uid , uid: metadataObj.stringValue)
+//            }
+//        }
+//    }
+
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
 
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-            msgLabel.text = "No QR code is detected"
-            return
-        }
-
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-
-            if metadataObj.stringValue != nil {
-                msgLabel.text = metadataObj.stringValue
-
-                print("scann success")
-
-                DatabaseManager.sharedInstance().inviteIndividual(rid: DatabaseManager.uid , uid: metadataObj.stringValue)
+        if(!scanned){
+            // Check if the metadataObjects array is not nil and it contains at least one object.
+            if metadataObjects == nil || metadataObjects.count == 0 {
+                qrCodeFrameView?.frame = CGRect.zero
+                msgLabel.text = "No QR code is detected"
+                return
             }
+
+            // Get the metadata object.
+            let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+
+            if metadataObj.type == AVMetadataObjectTypeQRCode {
+                // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+                let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+                qrCodeFrameView?.frame = barCodeObject!.bounds
+
+                if metadataObj.stringValue != nil {
+                    //let rid = metadataObj.stringValue
+                    scanned = true
+
+                    DatabaseManager.sharedInstance().inviteIndividual(rid: DatabaseManager.uid , uid: metadataObj.stringValue)
+
+                    DatabaseManager.sharedInstance().observeInviteAccepted(rid: DatabaseManager.uid , uid: metadataObj.stringValue, onAccept: onaccept)
+                }
+            }
+        }
+    }
+
+    private func onaccept(param: String){
+        print("bbbb")
+        self.performSegue(withIdentifier: "scanVerify", sender: self)
+    }
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scanVerify"{
+            let controller = segue.destination as! Map2ViewController
+            controller.path1 = true
         }
     }
 

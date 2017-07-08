@@ -27,6 +27,7 @@
 		2CF0807F1F10A1C400B7EF67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */; };
 		2CF080811F10B7D100B7EF67 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF080801F10B7D100B7EF67 /* ImageCollectionViewCell.swift */; };
 		2CF080831F10DFF400B7EF67 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF080821F10DFF400B7EF67 /* DatabaseManager.swift */; };
+		2CF080851F11162300B7EF67 /* pro0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF080841F11162300B7EF67 /* pro0.plist */; };
 		4D3AE9CF2D6B88A681C47E81 /* Pods_finchack2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5DB8057E859BBE7AD206FA /* Pods_finchack2017.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2CF080801F10B7D100B7EF67 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CF080821F10DFF400B7EF67 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = ../../../../Downloads/DatabaseManager.swift; sourceTree = "<group>"; };
+		2CF080841F11162300B7EF67 /* pro0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = pro0.plist; path = ../../../../Downloads/pro0.plist; sourceTree = "<group>"; };
 		B0DA9613F58B2845BD01B590 /* Pods-finchack2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finchack2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-finchack2017/Pods-finchack2017.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 		2C62ABE31F10917F00E7F49A /* finchack2017 */ = {
 			isa = PBXGroup;
 			children = (
+				2CF080841F11162300B7EF67 /* pro0.plist */,
 				2CF080821F10DFF400B7EF67 /* DatabaseManager.swift */,
 				2CF0807E1F10A1C400B7EF67 /* GoogleService-Info.plist */,
 				2C62ABF61F10940900E7F49A /* GradientView.swift */,
@@ -196,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF080851F11162300B7EF67 /* pro0.plist in Resources */,
 				2C62ABEF1F10917F00E7F49A /* LaunchScreen.storyboard in Resources */,
 				2C62ABEC1F10917F00E7F49A /* Assets.xcassets in Resources */,
 				2C62AC081F10940900E7F49A /* Places.plist in Resources */,

@@ -15,16 +15,30 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
 {
     @IBOutlet var mapView: MKMapView?
 
-    var imageArray = [UIImage(named: "bar_item2"), UIImage(named: "bar_item1"), UIImage(named: "hang_sang_pin")]
+    var imageArray = [UIImage(named: "Group 73"), UIImage(named: "Group 72"), UIImage(named: "Group 65"), UIImage(named: "Group 88"), UIImage(named: "Group 63")]
+
+    var imageArray1 = [UIImage(named: "Group 63"), UIImage(named: "Group 67"), UIImage(named: "Group 66"), UIImage(named: "Group 89"), UIImage(named: "Group 99")]
+
+    var path1 = false
 
     let locationManager = CLLocationManager()
     
-    let places = Place.getPlaces()
-    
+    var places = [Place]()
+    var places_single = [Place]()
+    var places_multi = [Place]()
+
     override func viewDidLoad() {
         //requestLocationAccess()
-        
-        
+
+        (places_single , places_multi) = Place.getPlaces()
+        if path1{
+            places = places_multi
+            print("path1 detected")
+        } else{
+            places = places_single
+            print("path0 detected")
+        }
+
         //Show the map
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self

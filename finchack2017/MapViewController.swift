@@ -11,8 +11,12 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-    
-    let places = Place.getPlaces()
+
+    var path1 = false
+    var places = [Place]()
+    var places_single = [Place]()
+    var places_multi = [Place]()
+
     @IBAction func showbutton(_ sender: Any) {
         //Defining destination
         let latitude:CLLocationDegrees = 22.261556
@@ -45,6 +49,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
+         (places_single , places_multi) = Place.getPlaces()
+        if path1{
+            places = places_multi
+            print("path1")
+        } else{
+            places = places_single
+            print("path0")
+        }
         
         
         //Add pin point
