@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1767701F1151BD00048B7C /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17676F1F1151BD00048B7C /* ShopDetailViewController.swift */; };
 		2C62ABE51F10917F00E7F49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62ABE41F10917F00E7F49A /* AppDelegate.swift */; };
 		2C62ABE71F10917F00E7F49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62ABE61F10917F00E7F49A /* ViewController.swift */; };
 		2C62ABEA1F10917F00E7F49A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ABE81F10917F00E7F49A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0008815F04C54086EA0CD592 /* Pods-finchack2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finchack2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-finchack2017/Pods-finchack2017.release.xcconfig"; sourceTree = "<group>"; };
 		0A5DB8057E859BBE7AD206FA /* Pods_finchack2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_finchack2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C17676F1F1151BD00048B7C /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		2C62ABE11F10917F00E7F49A /* finchack2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finchack2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C62ABE41F10917F00E7F49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C62ABE61F10917F00E7F49A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				2C62ABED1F10917F00E7F49A /* LaunchScreen.storyboard */,
 				2C62ABF01F10917F00E7F49A /* Info.plist */,
 				2CF080801F10B7D100B7EF67 /* ImageCollectionViewCell.swift */,
+				2C17676F1F1151BD00048B7C /* ShopDetailViewController.swift */,
 			);
 			path = finchack2017;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				2C62AC071F10940900E7F49A /* Place.swift in Sources */,
 				2CF080831F10DFF400B7EF67 /* DatabaseManager.swift in Sources */,
 				2C62ABE51F10917F00E7F49A /* AppDelegate.swift in Sources */,
+				2C1767701F1151BD00048B7C /* ShopDetailViewController.swift in Sources */,
 				2C62AC0D1F10940900E7F49A /* testViewController.swift in Sources */,
 				2C62AC0A1F10940900E7F49A /* QRCodeGeneratorController.swift in Sources */,
 				2C62AC031F10940900E7F49A /* Map2ViewController.swift in Sources */,

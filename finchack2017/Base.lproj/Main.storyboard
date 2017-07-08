@@ -229,13 +229,25 @@
                                         <state key="normal" backgroundImage="Group 46"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 58" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-JH-pLW">
-                                        <rect key="frame" x="62.5" y="84" width="250" height="250"/>
+                                        <rect key="frame" x="62.5" y="0.0" width="250" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qaL-4J-n6p">
-                                        <rect key="frame" x="112.5" y="135" width="150" height="150"/>
+                                        <rect key="frame" x="112.5" y="50" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiffany" translatesAutoresizingMaskIntoConstraints="NO" id="O0R-Qy-gMe">
+                                        <rect key="frame" x="36.5" y="250" width="300" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3A-mi-A3E" userLabel="back">
+                                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back button"/>
+                                        <connections>
+                                            <action selector="dismiss_controller:" destination="blR-mt-bqq" eventType="touchUpInside" id="A00-8C-eMr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                             <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-Wj-SW4">
@@ -413,10 +425,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKo-k1-RMY" userLabel="back">
+                                <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back button"/>
+                                <connections>
+                                    <action selector="dismiss_Controller:" destination="S5s-Te-aII" eventType="touchUpInside" id="Ohy-cZ-cKR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="back_button" destination="KKo-k1-RMY" id="Mr7-FY-Nw7"/>
                         <outlet property="msgLabel" destination="hw7-1W-Z6O" id="iEL-jP-gsT"/>
                         <segue destination="sPD-RT-Jfg" kind="show" identifier="scanVerify" id="3lj-8w-5aM"/>
                     </connections>
@@ -446,7 +467,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" backgroundImage="hang_sang_showmebutton"/>
                                 <connections>
-                                    <segue destination="sPD-RT-Jfg" kind="show" id="t6R-uw-zj6"/>
+                                    <segue destination="sPD-RT-Jfg" kind="showDetail" action="showViewController:sender:" id="t6R-uw-zj6"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searching_bar" translatesAutoresizingMaskIntoConstraints="NO" id="JoL-ta-aWA">
@@ -457,7 +478,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Group 61"/>
                                 <connections>
-                                    <segue destination="S5s-Te-aII" kind="show" id="BlP-qi-KW6"/>
+                                    <segue destination="S5s-Te-aII" kind="showDetail" action="showViewController:sender:" id="BlP-qi-KW6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZh-os-thc" userLabel="nav_button2">
@@ -465,7 +486,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Group 59"/>
                                 <connections>
-                                    <segue destination="blR-mt-bqq" kind="show" id="p3L-uQ-ubi"/>
+                                    <segue destination="blR-mt-bqq" kind="showDetail" action="showViewController:sender:" id="p3L-uQ-ubi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DZ-VD-hz8" userLabel="nav_button3">
@@ -555,7 +576,7 @@
                                                 </view>
                                                 <connections>
                                                     <outlet property="image" destination="Esi-vE-OUy" id="5oR-8f-HIB"/>
-                                                    <segue destination="bfm-NT-3yS" kind="show" identifier="detailController" id="7k9-6B-ccy"/>
+                                                    <segue destination="bfm-NT-3yS" kind="showDetail" identifier="detailController" action="showViewController:sender:" id="7k9-6B-ccy"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -564,6 +585,15 @@
                                             <outlet property="delegate" destination="sPD-RT-Jfg" id="CIQ-ZH-i0B"/>
                                         </connections>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RF-bo-3q9">
+                                        <rect key="frame" x="10" y="10" width="30" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="back button"/>
+                                        <connections>
+                                            <action selector="dismiss_Control:" destination="sPD-RT-Jfg" eventType="touchUpInside" id="zv4-NQ-LYd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -578,10 +608,10 @@
             </objects>
             <point key="canvasLocation" x="1016.8" y="1286.8065967016494"/>
         </scene>
-        <!--View Controller-->
+        <!--Shop Detail View Controller-->
         <scene sceneID="YwQ-aG-Y3q">
             <objects>
-                <viewController id="bfm-NT-3yS" sceneMemberID="viewController">
+                <viewController id="bfm-NT-3yS" customClass="ShopDetailViewController" customModule="finchack2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AwD-Lr-THB"/>
                         <viewControllerLayoutGuide type="bottom" id="FEm-pm-bLK"/>
@@ -591,21 +621,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hang sang page1" translatesAutoresizingMaskIntoConstraints="NO" id="HVW-dI-H81">
-                                <rect key="frame" x="0.0" y="178" width="375" height="124"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hang_sang_shop" translatesAutoresizingMaskIntoConstraints="NO" id="DHE-hA-g7w">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="finhack_manling" translatesAutoresizingMaskIntoConstraints="NO" id="DHE-hA-g7w">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-eK-9EU">
+                                <rect key="frame" x="10" y="30" width="30" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back button"/>
+                                <connections>
+                                    <action selector="dismiss_Control:" destination="bfm-NT-3yS" eventType="touchUpInside" id="IiF-pm-kTn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FEm-pm-bLK" firstAttribute="top" secondItem="DHE-hA-g7w" secondAttribute="bottom" id="il3-HP-mMx"/>
-                            <constraint firstItem="DHE-hA-g7w" firstAttribute="top" secondItem="AwD-Lr-THB" secondAttribute="bottom" id="k3R-7m-CSm"/>
-                            <constraint firstAttribute="trailing" secondItem="DHE-hA-g7w" secondAttribute="trailing" id="tQk-uG-MEz"/>
-                            <constraint firstItem="DHE-hA-g7w" firstAttribute="leading" secondItem="vQh-rN-nxb" secondAttribute="leading" id="twy-7n-xyk"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imagebot" destination="HVW-dI-H81" id="sR7-ES-yEl"/>
+                        <outlet property="imagetop" destination="DHE-hA-g7w" id="Lhk-d2-yle"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVp-pf-LGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -622,21 +659,23 @@
         <image name="Group 62" width="392" height="276"/>
         <image name="Group 64" width="324" height="76"/>
         <image name="Welcome to MindMap." width="222" height="88"/>
+        <image name="back button" width="13" height="20"/>
         <image name="bar_item1" width="30" height="30"/>
         <image name="bar_item2" width="31" height="31"/>
         <image name="create_account" width="286" height="41"/>
         <image name="finhack_background" width="1082" height="666"/>
         <image name="finhack_fb" width="287" height="44"/>
+        <image name="finhack_manling" width="375" height="653"/>
         <image name="finhack_map" width="1188" height="678"/>
         <image name="hang sang page1" width="375" height="105"/>
         <image name="hang_sang_icon" width="456" height="471"/>
         <image name="hang_sang_rule2" width="117" height="20"/>
-        <image name="hang_sang_shop" width="375" height="772"/>
         <image name="hang_sang_showmebutton" width="309" height="68"/>
         <image name="line" width="375" height="2"/>
         <image name="searching_bar" width="366" height="62"/>
+        <image name="tiffany" width="319" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3lj-8w-5aM"/>
+        <segue reference="EZn-Oj-CR7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,10 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
 {
     @IBOutlet var mapView: MKMapView?
+    @IBAction func dismiss_Control(_ sender: Any) {
+        print("pop controller1")
+        self.dismiss(animated: true, completion: nil)
+    }
 
     var imageArray = [Any]()
 
@@ -33,7 +37,7 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //requestLocationAccess()
 
         (places_single , places_multi) = Place.getPlaces()
-        if !path1{
+        if path1{
             places = places_multi
             imageArray = imageArray1
             print("path1 detected")
@@ -178,8 +182,11 @@ extension Map2ViewController: MKMapViewDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailController"{
-            //let controller = segue.destination as! pageViewController
-            //controller.meal = self.meals[(menuCell.indexPathForSelectedRow?.row)!]
+            if path1{
+                let controller = segue.destination as! ShopDetailViewController
+
+                controller.path1 = true
+            }
         }
     }
 }

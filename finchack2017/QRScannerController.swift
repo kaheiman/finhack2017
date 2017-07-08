@@ -11,6 +11,11 @@ import AVFoundation
 
 class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
+    @IBAction func dismiss_Controller(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBOutlet weak var back_button: UIButton!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
@@ -53,6 +58,8 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 
             // Move the message label and top bar to the front
             view.bringSubview(toFront: msgLabel)
+
+            view.bringSubview(toFront: back_button)
 
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()

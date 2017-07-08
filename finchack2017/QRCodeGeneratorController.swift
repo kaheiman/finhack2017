@@ -19,6 +19,9 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
     var effect:UIVisualEffect!
     var rid: String?
 
+    @IBAction func dismiss_controller(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 //    @IBOutlet weak var textField: UITextField!
 //    @IBOutlet weak var btnAction: UIButton!
     @IBOutlet weak var imgQRCode: UIImageView!
