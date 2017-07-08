@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>H&amp;M</string>
+		<key>description</key>
+		<string>20% off</string>
+		<key>longitude</key>
+		<real>114.127518</real>
+		<key>latitude</key>
+		<real>22.2619881</real>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mannings</string>
+		<key>description</key>
+		<string>buy 1 get 1 free</string>
+		<key>longitude</key>
+		<real>114.1288611</real>
+		<key>latitude</key>
+		<real>22.2629097</real>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Cyberport Harbour</string>
+		<key>description</key>
+		<string>Beautiful Sunshine</string>
+		<key>longitude</key>
+		<real>114.12907</real>
+		<key>latitude</key>
+		<real>22.261</real>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>My Location</string>
+		<key>description</key>
+		<string>Enjoy the path</string>
+		<key>longitude</key>
+		<real>114.131823</real>
+		<key>latitude</key>
+		<real>22.260166</real>
+	</dict>
+</array>
+</plist>
