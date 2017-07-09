@@ -116,6 +116,8 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "secondRoute"{
+            popUpView.isHidden = true
+            visualEffect.isHidden = true
             let controller = segue.destination as! Map2ViewController
             controller.path1 = true
         }

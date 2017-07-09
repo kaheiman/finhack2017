@@ -16,7 +16,7 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var mapView: MKMapView?
     @IBAction func dismiss_Control(_ sender: Any) {
         print("pop controller1")
-        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     var imageArray = [Any]()
@@ -25,7 +25,7 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     var imageArray1 = [UIImage(named: "Group 63"), UIImage(named: "Group 67"), UIImage(named: "Group 66"), UIImage(named: "Group 69"), UIImage(named: "Group 99")]
 
-    var path1 = true
+    var path1 = false
 
     let locationManager = CLLocationManager()
     

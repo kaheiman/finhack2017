@@ -592,7 +592,6 @@
                                         <state key="normal" backgroundImage="back button"/>
                                         <connections>
                                             <action selector="dismiss_Control:" destination="sPD-RT-Jfg" eventType="touchUpInside" id="zv4-NQ-LYd"/>
-                                            <segue destination="aia-ld-Ees" kind="showDetail" id="giJ-zs-837"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -607,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uzn-GT-sRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016.8" y="1286.8065967016494"/>
+            <point key="canvasLocation" x="1017" y="1161"/>
         </scene>
         <!--Shop Detail View Controller-->
         <scene sceneID="YwQ-aG-Y3q">
@@ -677,7 +676,6 @@
         <image name="tiffany" width="319" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="giJ-zs-837"/>
         <segue reference="EZn-Oj-CR7"/>
     </inferredMetricsTieBreakers>
 </document>
