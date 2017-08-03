@@ -13,7 +13,7 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
 
     //For firebase
-    var qrCocdeStringName: String = DatabaseManager.uid
+    static var qrCocdeStringName: String?
     var databaseURL: String = "https://finhack2017.firebaseio.com/"
     var qrcodeImage: CIImage!
     var effect:UIVisualEffect!
@@ -30,7 +30,7 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
     @IBAction func popUpAccept(_ sender: Any) {
 
-        DatabaseManager.sharedInstance().acceptInvitation(rid: rid!, uid: DatabaseManager.uid)
+        DatabaseManager.sharedInstance().acceptInvitation(rid: rid!, uid: QRCodeGeneratorController.qrCocdeStringName!)
         print("popupaccept button on")
         //self.performSegue(withIdentifier: "secondRoute", sender: self)
     }
@@ -62,16 +62,10 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
         return false
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        effect = visualEffect.effect
-        //visualEffect.effect = nil
+    override func viewDidAppear(_ animated: Bool) {
         visualEffect.isHidden = true
-        popUpView.layer.cornerRadius = 5
-
         // Generate
-        let data = qrCocdeStringName.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+        let data = QRCodeGeneratorController.qrCocdeStringName?.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
 
         let filter = CIFilter(name: "CIQRCodeGenerator")
 
@@ -83,8 +77,15 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
         imgQRCode.image = UIImage(ciImage: qrcodeImage)
 
         //self.textField.delegate = self
-        DatabaseManager.sharedInstance().bindInvitations(uid: DatabaseManager.uid, onInvite: oninvite)
+        DatabaseManager.sharedInstance().bindInvitations(uid: QRCodeGeneratorController.qrCocdeStringName!, onInvite: oninvite)
 
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        visualEffect.isHidden = true
+        popUpView.layer.cornerRadius = 5
 
     }
 
@@ -101,7 +102,9 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
 
     func animateIn(){
         visualEffect.isHidden = false
+        popUpView.isHidden = false
         self.view.addSubview(popUpView)
+        print("popupview: ", popUpView)
         popUpView.center = self.view.center
 
         popUpView.transform = CGAffineTransform.init(scaleX: 1.3, y:1.3)
@@ -112,6 +115,9 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
             self.popUpView.alpha = 1
             self.popUpView.transform = CGAffineTransform.identity
         }
+        handleTap()
+
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,5 +129,75 @@ class QRCodeGeneratorController: UIViewController, UITextFieldDelegate{
         }
     }
 
+    func handleTap(){
+        (0...15).forEach{ (_) in
+            generateAnimatedViews()
+            //colorAnimatedViews()
+        }
+    }
 
+    fileprivate func generateAnimatedViews(){
+        let image = drand48() > 0.5 ? #imageLiteral(resourceName: "thumbs_up") : #imageLiteral(resourceName: "heart")
+        let imageView = UIImageView(image: image)
+        //drand gives you a random number from 0 to 1 -> dimension {20 to 30}
+        let dimension = 20 + drand48() * 10
+        imageView.frame = CGRect(x: 0, y: 0, width: dimension, height: dimension)
+
+        let animation = CAKeyframeAnimation(keyPath: "position")
+        animation.path = customPath().cgPath
+
+        animation.duration = 2 + drand48() * 3
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+
+        imageView.layer.add(animation, forKey:  nil)
+        view.addSubview(imageView)
+    }
+
+    fileprivate func colorAnimatedViews(){
+        let colorKeyframeAnimation = CAKeyframeAnimation(keyPath: "backgroundColor")
+        colorKeyframeAnimation.values = [
+            UIColor.red.cgColor,
+            UIColor.green.cgColor,
+            UIColor.blue.cgColor,
+            UIColor.cyan.cgColor,
+            UIColor.darkGray.cgColor]
+        colorKeyframeAnimation.keyTimes = [0, 0.25, 0.5, 0.75, 1]
+        colorKeyframeAnimation.duration = 1
+        view.layer.add(colorKeyframeAnimation, forKey: nil)
+    }
+
+}
+
+func customPath() -> UIBezierPath {
+
+    //define a path for you to render
+    let path = UIBezierPath()
+
+    path.move(to: CGPoint(x: 0, y: 350 ))
+
+    let endPoint = CGPoint(x: 400, y: 350)
+
+    let randYShipt = drand48() * 100
+
+    let cp1 = CGPoint(x: 100, y: 150 - randYShipt)
+    let cp2 = CGPoint(x: 200, y: 350 + randYShipt)
+
+    path.addCurve(to: endPoint, controlPoint1: cp1, controlPoint2: cp2)
+    return path
+}
+
+class CurvedView: UIView{
+
+    override func draw(_ rect: CGRect) {
+        //do some fancy thing here
+
+        //path.addLine(to: endPoint) 直線rendering
+
+        let path = customPath()
+        path.lineWidth = 3
+        //render a line after creating starting and ending point
+        path.stroke()
+    }
 }

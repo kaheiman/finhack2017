@@ -24,6 +24,59 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 
     @IBOutlet weak var msgLabel: UILabel!
 
+    override func viewDidAppear(_ animated: Bool) {
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+
+        do {
+            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+
+            // Initialize the captureSession object.
+            captureSession = AVCaptureSession()
+
+            // Set the input device on the capture session.
+            captureSession?.addInput(input)
+
+            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
+            let captureMetadataOutput = AVCaptureMetadataOutput()
+            captureSession?.addOutput(captureMetadataOutput)
+
+            // Set delegate and use the default dispatch queue to execute the call back
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+
+            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer?.frame = view.layer.bounds
+            view.layer.addSublayer(videoPreviewLayer!)
+
+            // Start video capture.
+            captureSession?.startRunning()
+
+            // Move the message label and top bar to the front
+            view.bringSubview(toFront: msgLabel)
+
+            view.bringSubview(toFront: back_button)
+
+            // Initialize QR Code Frame to highlight the QR code
+            qrCodeFrameView = UIView()
+
+            if let qrCodeFrameView = qrCodeFrameView {
+                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                qrCodeFrameView.layer.borderWidth = 2
+                view.addSubview(qrCodeFrameView)
+                view.bringSubview(toFront: qrCodeFrameView)
+            }
+
+        } catch {
+            // If any error occurs, simply print it out and don't continue any more.
+            print(error)
+            return
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
@@ -132,9 +185,9 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                     //let rid = metadataObj.stringValue
                     scanned = true
 
-                    DatabaseManager.sharedInstance().inviteIndividual(rid: DatabaseManager.uid , uid: metadataObj.stringValue)
+                    DatabaseManager.sharedInstance().inviteIndividual(rid: QRCodeGeneratorController.qrCocdeStringName! , uid: metadataObj.stringValue)
 
-                    DatabaseManager.sharedInstance().observeInviteAccepted(rid: DatabaseManager.uid , uid: metadataObj.stringValue, onAccept: onaccept)
+                    DatabaseManager.sharedInstance().observeInviteAccepted(rid: QRCodeGeneratorController.qrCocdeStringName! , uid: metadataObj.stringValue, onAccept: onaccept)
                 }
             }
         }
@@ -148,6 +201,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "scanVerify"{
+            scanned = false
             print("gg can verify")
             let controller = segue.destination as! Map2ViewController
             controller.path1 = true

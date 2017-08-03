@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var icon: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let keys = Int(98765 * drand48())
+        print("this is key: " , keys)
+        QRCodeGeneratorController.qrCocdeStringName = "\(keys)"
         
         DispatchQueue.main.async(execute: {
             if self.icon != nil {

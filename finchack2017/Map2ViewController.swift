@@ -57,8 +57,8 @@ class Map2ViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //            
 //        }
 
-        let lat = (path1 ? 22.2832221:22.2807481)
-        let lng = (path1 ? 114.181369:114.181085)
+        let lat = path1 ? 22.2832221:22.2807481
+        let lng = path1 ? 114.181369:114.181085
         let span = MKCoordinateSpanMake(0.014, 0.014)
         let coordinates = CLLocationCoordinate2DMake(lat, lng)
         let region = MKCoordinateRegion(center: coordinates, span: span)
@@ -124,7 +124,14 @@ extension Map2ViewController: MKMapViewDelegate {
             
         else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+
             annotationView.image = UIImage(named: "hang_sang_pin")
+
+            UIView.animate(withDuration: 1, delay: 0.1, options: [.autoreverse, .repeat], animations: {
+                annotationView.frame.origin.y += 7
+            })
+
+
             annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             annotationView.canShowCallout = true
             return annotationView
@@ -195,16 +202,17 @@ extension Map2ViewController: MKMapViewDelegate {
 extension Map2ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let location = locations.last! as CLLocation
-        
-        let center = CLLocationCoordinate2D(
-            latitude: location.coordinate.latitude,
-            longitude: location.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        self.mapView?.setRegion(region, animated: true)
+
+            let location = locations.last! as CLLocation
+            
+            let center = CLLocationCoordinate2D(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude)
+            
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            
+            self.mapView?.setRegion(region, animated: true)
+
         
     }
 }

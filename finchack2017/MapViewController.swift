@@ -17,6 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var places_single = [Place]()
     var places_multi = [Place]()
 
+    var turnOffLocation = false
+
     @IBAction func showbutton(_ sender: Any) {
         //Defining destination
         let latitude:CLLocationDegrees = 22.2832221
@@ -87,8 +89,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             locationManager.requestWhenInUseAuthorization()
             //locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
-            
-            self.map.showsUserLocation = true
+//            self.map.setRegion(MKCoordinateRegionMakeWithDistance(self.map.userLocation.coordinate, 2000.0, 2000.0), animated: true)
         }
         
     }
@@ -169,16 +170,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let location = locations.last! as CLLocation
-        
-        let center = CLLocationCoordinate2D(
-            latitude: location.coordinate.latitude,
-            longitude: location.coordinate.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        
-        self.map.setRegion(region, animated: true)
-        
+
+       if(self.turnOffLocation == false){
+            let location = locations.last! as CLLocation
+            
+            let center = CLLocationCoordinate2D(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude)
+            
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            
+            self.map.setRegion(region, animated: true)
+            self.turnOffLocation = true
+        }
+
     }
 }
